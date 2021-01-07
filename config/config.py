@@ -9,4 +9,7 @@ CNN_DIR = PACKAGE_ROOT / 'cnn_trained'
 TRAIN_DIR = PACKAGE_ROOT / 'data/train'
 TEST_DIR = PACKAGE_ROOT / 'data/test'
 
-TRAIN_IMAGE_FILE = 'training_images.npz'
+LOCAL_TRAIN_SUBSET = TRAIN_DIR / 'local_training_image_paths.pkl'
+LOCAL_TRAIN_TARGET = TRAIN_DIR / 'local_training_target.pkl'
+
+LOCAL_TRAIN_IMAGE_DIR = TRAIN_DIR / 'local_train_images'

@@ -6,7 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+#image data extensions
 *.dcm
+*.npy
 
 # Distribution / packaging
 .Python

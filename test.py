@@ -22,17 +22,17 @@ from skimage.transform import resize
 
 def dicom_to_numpy(input_tuple):
     view, path, file_num = input_tuple
-    im_path = config.TRAIN_DIR / path
-    assert os.path.exists(im_path), 'image does not exist'
+    #im_path = config.TRAIN_DIR / path
+    #assert os.path.exists(im_path), 'image does not exist'
                     
-    image = dcmread_image(fp=im_path, view=view)
-    image = image.astype(float)
-    image = image/65535.0
+    #image = dcmread_image(fp=im_path, view=view)
+    #image = image.astype(float)
+    #image = image/65535.0
     
-    scaled_image = resize(image, output_shape=(6,123,95), preserve_range=True,anti_aliasing=True)
+    #scaled_image = resize(image, output_shape=(6,123,95), preserve_range=True,anti_aliasing=True)
     
     save_path = config.LOCAL_TRAIN_IMAGE_DIR / str(file_num)
-    np.save(save_path, scaled_image)
+    #np.save(save_path, scaled_image)
     time.sleep(1)
     return save_path
 
@@ -67,6 +67,9 @@ if __name__ == '__main__':
 
 	with Pool(4) as p:
 	    numpy_paths =  list(tqdm.tqdm(p.imap(dicom_to_numpy,input_list),total=1000))
+
+	
+	numpy_paths = pd.Series(numpy_paths)
 
 	numpy_paths.to_pickle(config.LOCAL_TRAIN_SUBSET)
 	df_sub_target.to_pickle(config.LOCAL_TRAIN_TARGET)

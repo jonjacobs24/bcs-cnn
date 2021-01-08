@@ -1,0 +1,9 @@
+pandas >= 1.0.0
+numpy >= 1.0.0
+matplotlib >= 3.0.0
+pydicom >= 2.1.0
+urllib3 >=
+skimage
+scikit-learn
+keras
+tensorflow

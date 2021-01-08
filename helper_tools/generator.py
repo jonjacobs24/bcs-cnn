@@ -1,5 +1,5 @@
 import numpy
-import keras.utils.sequence
+import keras.utils.Sequence
 
 
 class Image_Generator(keras.utils.Sequence) :
